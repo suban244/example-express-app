@@ -28,3 +28,8 @@ jobs:
         context: .
         push: true
         tags: ${{ vars.DOCKER_USERNAME }}/example-express:latest
+
+    - name: Ping render for deployment
+      run: |
+        echo "Pinging render for deployment..."
+        curl --get ${{ secrets.RENDER_DEPLOY_HOOK }} \
