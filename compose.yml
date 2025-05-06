@@ -2,7 +2,8 @@ services:
   watchtower:
     image: containrrr/watchtower
     environment:
-      -  WATCHTOWER_POLL_INTERVAL=60 # Poll every 60 seconds
+      - WATCHTOWER_POLL_INTERVAL=60 # Poll every 60 seconds
+      - WATCHTOWER_LABEL_ENABLE=true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     container_name: watchtower
@@ -13,4 +14,4 @@ services:
       - 8080:8080
     container_name: express
     labels:
-      - "com.centurylinklabs.watchtower.monitor-only=true"
+      - "com.centurylinklabs.watchtower.enable=true"
